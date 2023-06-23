@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('produto_delete', {'id': produto.id}) }}" onsubmit="return confirm('Você tem certeza que quer deletar esse item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produto.id) }}">
+
+    <div class="d-flex justify-content-end">
+    <button class="btn btn-primary my-3">Deletar</button>
+    </div>
+</form>

@@ -1,0 +1,37 @@
+version: '3'
+services:
+    symfony:
+        container_name: symfony
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - ./public/:/var/www/symfony
+        ports:
+            - 1001:80
+        environment:
+            PMA_HOST: symfony_db
+        networks:
+            symfony_sites:
+    
+    symfony_phpmyadmin:
+        container_name: symfony_phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        environment:
+            PMA_HOST: symfony_db
+        ports:
+            - 1002:80
+        networks:
+            symfony_sites:
+    
+    symfony_db:
+        container_name: symfony_db
+        image: mysql:8
+        environment:
+            - MYSQL_DATABASE=symfony
+            - MYSQL_ROOT_PASSWORD=123456
+        networks:
+            symfony_sites:
+
+networks:
+    symfony_sites:
