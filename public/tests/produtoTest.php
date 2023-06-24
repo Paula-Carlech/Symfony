@@ -1,7 +1,9 @@
 <?php
 use PHPUnit\Framework\TestCase;
 use App\Entity\Produto;
+use Doctrine\ORM\Mapping as ORM;
 
+#[ApiResource]
 class produtoTest extends TestCase {
 
     // Verifica os métodos get e set

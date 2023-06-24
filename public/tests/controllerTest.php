@@ -1,6 +1,8 @@
 <?php
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Doctrine\ORM\Mapping as ORM;
 
+#[ApiResource]
 class controllerTest extends WebTestCase
 {
     // Teste do controlador Index

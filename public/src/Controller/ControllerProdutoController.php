@@ -9,8 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[Route('/produto')]
+#[ApiResource]
 class ControllerProdutoController extends AbstractController
 {
     #[Route('/', name: 'produto_index', methods: ['GET'])]
@@ -22,6 +25,7 @@ class ControllerProdutoController extends AbstractController
     }
 
     #[Route('/new', name: 'produto_new', methods: ['GET', 'POST'])]
+    #[Assert\NotBlank]
     public function new(Request $request, ProdutoRepository $produtoRepository): Response
     {
         if (empty($name)) {
@@ -53,6 +57,7 @@ class ControllerProdutoController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'produto_edit', methods: ['GET', 'POST'])]
+    #[Assert\NotBlank]
     public function edit(Request $request, Produto $produto, ProdutoRepository $produtoRepository): Response
     {
         if (empty($name)) {
