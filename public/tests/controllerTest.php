@@ -1,6 +1,6 @@
 <?php
+use ApiPlatform\Metadata\ApiResource;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Doctrine\ORM\Mapping as ORM;
 
 #[ApiResource]
 class controllerTest extends WebTestCase
