@@ -28,9 +28,6 @@ class ControllerProdutoController extends AbstractController
     #[Assert\NotBlank]
     public function new(Request $request, ProdutoRepository $produtoRepository): Response
     {
-        if (empty($name)) {
-            throw new \DomainException('O campo de nome é obrigatório');
-        }
 
         $produto = new Produto();
         $form = $this->createForm(ProdutoType::class, $produto);
@@ -46,6 +43,10 @@ class ControllerProdutoController extends AbstractController
             'produto' => $produto,
             'form' => $form,
         ]);
+
+        if (empty($name)) {
+            throw new \DomainException('O campo de nome é obrigatório');
+        }
     }
 
     #[Route('/{id}', name: 'produto_show', methods: ['GET'])]
@@ -60,9 +61,6 @@ class ControllerProdutoController extends AbstractController
     #[Assert\NotBlank]
     public function edit(Request $request, Produto $produto, ProdutoRepository $produtoRepository): Response
     {
-        if (empty($name)) {
-            throw new \DomainException('O campo de nome é obrigatório');
-        }
 
         $form = $this->createForm(ProdutoType::class, $produto);
         $form->handleRequest($request);
@@ -77,6 +75,10 @@ class ControllerProdutoController extends AbstractController
             'produto' => $produto,
             'form' => $form,
         ]);
+
+        if (empty($name)) {
+            throw new \DomainException('O campo de nome é obrigatório');
+        }
     }
 
     #[Route('/{id}', name: 'produto_delete', methods: ['POST'])]
