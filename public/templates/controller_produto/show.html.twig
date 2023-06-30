@@ -23,11 +23,11 @@
     </table>
 
     <div style="width: 100px;">
-    <a href="{{ path('produto_index') }}">Voltar</a>
+    <a class="btn btn-dark" style="width: 10vw" href="{{ path('produto_index') }}">Voltar</a>
     </div>
 
     <div style="width: 100px;">
-    <a href="{{ path('produto_edit', {'id': produto.id}) }}">Editar</a>
+    <a class="btn btn-dark my-3" style="width: 10vw" href="{{ path('produto_edit', {'id': produto.id}) }}">Editar</a>
     </div>
 
     {{ include('controller_produto/_delete_form.html.twig') }}

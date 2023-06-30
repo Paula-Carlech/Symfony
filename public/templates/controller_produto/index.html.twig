@@ -21,8 +21,8 @@
                 <td>{{ produto.Nome }}</td>
                 <td>{{ produto.Preco }}</td>
                 <td>
-                    <a href="{{ path('produto_show', {'id': produto.id}) }}">Mostrar</a>
-                    <a href="{{ path('produto_edit', {'id': produto.id}) }}">Editar</a>
+                    <a class="btn btn-dark" href="{{ path('produto_show', {'id': produto.id}) }}">Mostrar</a>
+                    <a class="btn btn-dark" href="{{ path('produto_edit', {'id': produto.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}
@@ -34,6 +34,6 @@
     </table>
 
     <div style="width: 100px;">
-    <a href="{{ path('produto_new') }}">Criar Novo</a>
+    <a class="btn btn-dark" style="width: 10vw" href="{{ path('produto_new') }}">Criar Novo</a>
     </div>
 {% endblock %}

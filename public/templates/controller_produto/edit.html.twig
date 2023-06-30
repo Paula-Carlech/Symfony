@@ -7,7 +7,7 @@
 
     {{ include('controller_produto/_form.html.twig', {'button_label': 'Atualizar'}) }}
 
-    <a href="{{ path('produto_index') }}">Voltar</a>
+    <a class="btn btn-dark my-3" style="width: 10vw" href="{{ path('produto_index') }}">Voltar</a>
 
     {{ include('controller_produto/_delete_form.html.twig') }}
 {% endblock %}
